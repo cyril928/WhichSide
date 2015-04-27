@@ -97,6 +97,7 @@
 		C6561D4B1AE8639A00393613 /* ChooseLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6561D4A1AE8639A00393613 /* ChooseLevel.m */; };
 		C6561D4E1AE86E6F00393613 /* MissionAssign.m in Sources */ = {isa = PBXBuildFile; fileRef = C6561D4D1AE86E6F00393613 /* MissionAssign.m */; };
 		C6561D5D1AE8876100393613 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = C6561D5C1AE8876100393613 /* Item.m */; };
+		C69AF28B1AED6683004C4DB1 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = C69AF28A1AED6683004C4DB1 /* Queue.m */; };
 		C6BE2D961AE9B78A00E834EE /* GamePlay.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BE2D951AE9B78A00E834EE /* GamePlay.m */; };
 /* End PBXBuildFile section */
 
@@ -215,6 +216,8 @@
 		C6561D4D1AE86E6F00393613 /* MissionAssign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MissionAssign.m; path = Source/MissionAssign.m; sourceTree = "<group>"; };
 		C6561D5B1AE8876100393613 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = Source/Item.h; sourceTree = "<group>"; };
 		C6561D5C1AE8876100393613 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = Source/Item.m; sourceTree = "<group>"; };
+		C69AF2891AED6683004C4DB1 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Queue.h; path = Source/Queue.h; sourceTree = "<group>"; };
+		C69AF28A1AED6683004C4DB1 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Queue.m; path = Source/Queue.m; sourceTree = "<group>"; };
 		C6BE2D941AE9B78A00E834EE /* GamePlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GamePlay.h; path = Source/GamePlay.h; sourceTree = "<group>"; };
 		C6BE2D951AE9B78A00E834EE /* GamePlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GamePlay.m; path = Source/GamePlay.m; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
@@ -452,6 +455,8 @@
 				C6561D5C1AE8876100393613 /* Item.m */,
 				C6BE2D941AE9B78A00E834EE /* GamePlay.h */,
 				C6BE2D951AE9B78A00E834EE /* GamePlay.m */,
+				C69AF2891AED6683004C4DB1 /* Queue.h */,
+				C69AF28A1AED6683004C4DB1 /* Queue.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -828,6 +833,7 @@
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
 				C6BE2D961AE9B78A00E834EE /* GamePlay.m in Sources */,
+				C69AF28B1AED6683004C4DB1 /* Queue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

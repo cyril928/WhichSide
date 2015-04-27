@@ -10,6 +10,7 @@
 
 @interface Item : CCSprite
 
+@property (nonatomic, assign) int id;
 @property (nonatomic, assign) BOOL isLeft;
 
 - (id)initItem:(int)id;
