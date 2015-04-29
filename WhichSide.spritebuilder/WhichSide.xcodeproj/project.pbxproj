@@ -94,11 +94,16 @@
 		BC5399DA1A44DCC90063F482 /* GLActivityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D51A44DCC90063F482 /* GLActivityKit.framework */; };
 		BC5399DB1A44DCC90063F482 /* JavaFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D61A44DCC90063F482 /* JavaFoundation.framework */; };
 		BC5399DC1A44DCC90063F482 /* JavaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D71A44DCC90063F482 /* JavaKit.framework */; };
+		C648F9431AF0490D001B09C8 /* Recap.m in Sources */ = {isa = PBXBuildFile; fileRef = C648F9421AF0490D001B09C8 /* Recap.m */; };
 		C6561D4B1AE8639A00393613 /* ChooseLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6561D4A1AE8639A00393613 /* ChooseLevel.m */; };
 		C6561D4E1AE86E6F00393613 /* MissionAssign.m in Sources */ = {isa = PBXBuildFile; fileRef = C6561D4D1AE86E6F00393613 /* MissionAssign.m */; };
 		C6561D5D1AE8876100393613 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = C6561D5C1AE8876100393613 /* Item.m */; };
 		C69AF28B1AED6683004C4DB1 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = C69AF28A1AED6683004C4DB1 /* Queue.m */; };
 		C6BE2D961AE9B78A00E834EE /* GamePlay.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BE2D951AE9B78A00E834EE /* GamePlay.m */; };
+		C6E2AA3E1AF0624600D3F47A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E2AA3A1AF0624600D3F47A /* Bolts.framework */; };
+		C6E2AA3F1AF0624600D3F47A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E2AA3B1AF0624600D3F47A /* FBSDKCoreKit.framework */; };
+		C6E2AA401AF0624600D3F47A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E2AA3C1AF0624600D3F47A /* FBSDKLoginKit.framework */; };
+		C6E2AA411AF0624600D3F47A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E2AA3D1AF0624600D3F47A /* FBSDKShareKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,6 +215,8 @@
 		BC5399D51A44DCC90063F482 /* GLActivityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLActivityKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/GLActivityKit.framework"; sourceTree = "<group>"; };
 		BC5399D61A44DCC90063F482 /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		BC5399D71A44DCC90063F482 /* JavaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaKit.framework"; sourceTree = "<group>"; };
+		C648F9411AF0490D001B09C8 /* Recap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Recap.h; path = Source/Recap.h; sourceTree = "<group>"; };
+		C648F9421AF0490D001B09C8 /* Recap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Recap.m; path = Source/Recap.m; sourceTree = "<group>"; };
 		C6561D491AE8639A00393613 /* ChooseLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseLevel.h; path = Source/ChooseLevel.h; sourceTree = "<group>"; };
 		C6561D4A1AE8639A00393613 /* ChooseLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChooseLevel.m; path = Source/ChooseLevel.m; sourceTree = "<group>"; };
 		C6561D4C1AE86E6F00393613 /* MissionAssign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MissionAssign.h; path = Source/MissionAssign.h; sourceTree = "<group>"; };
@@ -220,6 +227,10 @@
 		C69AF28A1AED6683004C4DB1 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Queue.m; path = Source/Queue.m; sourceTree = "<group>"; };
 		C6BE2D941AE9B78A00E834EE /* GamePlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GamePlay.h; path = Source/GamePlay.h; sourceTree = "<group>"; };
 		C6BE2D951AE9B78A00E834EE /* GamePlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GamePlay.m; path = Source/GamePlay.m; sourceTree = "<group>"; };
+		C6E2AA3A1AF0624600D3F47A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		C6E2AA3B1AF0624600D3F47A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		C6E2AA3C1AF0624600D3F47A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		C6E2AA3D1AF0624600D3F47A /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -266,11 +277,15 @@
 			files = (
 				7A97911819E631CD001FFC4D /* libcocos2d.a in Frameworks */,
 				8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */,
+				C6E2AA411AF0624600D3F47A /* FBSDKShareKit.framework in Frameworks */,
 				B77F1B3217B978D7009739AE /* QuartzCore.framework in Frameworks */,
+				C6E2AA3E1AF0624600D3F47A /* Bolts.framework in Frameworks */,
+				C6E2AA401AF0624600D3F47A /* FBSDKLoginKit.framework in Frameworks */,
 				B77F1B3417B978D7009739AE /* OpenGLES.framework in Frameworks */,
 				B77F1B3617B978D7009739AE /* OpenAL.framework in Frameworks */,
 				B77F1B3817B978D7009739AE /* AudioToolbox.framework in Frameworks */,
 				B77F1B3A17B978D7009739AE /* AVFoundation.framework in Frameworks */,
+				C6E2AA3F1AF0624600D3F47A /* FBSDKCoreKit.framework in Frameworks */,
 				B77F1B3C17B978D7009739AE /* UIKit.framework in Frameworks */,
 				B77F1B3E17B978D7009739AE /* Foundation.framework in Frameworks */,
 				B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */,
@@ -457,6 +472,8 @@
 				C6BE2D951AE9B78A00E834EE /* GamePlay.m */,
 				C69AF2891AED6683004C4DB1 /* Queue.h */,
 				C69AF28A1AED6683004C4DB1 /* Queue.m */,
+				C648F9411AF0490D001B09C8 /* Recap.h */,
+				C648F9421AF0490D001B09C8 /* Recap.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -507,6 +524,10 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C6E2AA3A1AF0624600D3F47A /* Bolts.framework */,
+				C6E2AA3B1AF0624600D3F47A /* FBSDKCoreKit.framework */,
+				C6E2AA3C1AF0624600D3F47A /* FBSDKLoginKit.framework */,
+				C6E2AA3D1AF0624600D3F47A /* FBSDKShareKit.framework */,
 				BC5399D31A44DCC90063F482 /* AndroidKit.framework */,
 				BC5399D41A44DCC90063F482 /* CoreJava.framework */,
 				BC5399D51A44DCC90063F482 /* GLActivityKit.framework */,
@@ -832,6 +853,7 @@
 				C6561D4B1AE8639A00393613 /* ChooseLevel.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
+				C648F9431AF0490D001B09C8 /* Recap.m in Sources */,
 				C6BE2D961AE9B78A00E834EE /* GamePlay.m in Sources */,
 				C69AF28B1AED6683004C4DB1 /* Queue.m in Sources */,
 			);
@@ -1114,11 +1136,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
@@ -1149,11 +1176,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
 				HEADER_SEARCH_PATHS = (

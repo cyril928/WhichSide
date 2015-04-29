@@ -10,7 +10,9 @@
 
 static NSString *path = @"WhichSideAssets/item-%d.png";
 
-@implementation Item
+@implementation Item {
+    BOOL isLeft;
+}
 
 - (instancetype) initItem:(int)id {
     self = [super initWithImageNamed:[[NSString alloc] initWithFormat:path, id]];
@@ -25,8 +27,12 @@ static NSString *path = @"WhichSideAssets/item-%d.png";
     return self;
 }
 
-- (void) setIsLeft:(BOOL)isLeft {
-    self.isLeft = isLeft;
+- (void) setIsLeft:(BOOL)isLeftSide {
+    isLeft = isLeftSide;
+}
+
+- (BOOL) getIsLeft {
+    return isLeft;
 }
 
 @end
