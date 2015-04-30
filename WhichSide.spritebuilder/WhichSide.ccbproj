@@ -80,6 +80,11 @@
 		</dict>
 		<key>Sprites</key>
 		<dict/>
+		<key>TimeSquareAssets</key>
+		<dict>
+			<key>isSmartSpriteSheet</key>
+			<true/>
+		</dict>
 		<key>WhichSideAssets</key>
 		<dict>
 			<key>isSmartSpriteSheet</key>
