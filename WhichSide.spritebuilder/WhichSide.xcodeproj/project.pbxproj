@@ -95,6 +95,9 @@
 		BC5399DB1A44DCC90063F482 /* JavaFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D61A44DCC90063F482 /* JavaFoundation.framework */; };
 		BC5399DC1A44DCC90063F482 /* JavaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D71A44DCC90063F482 /* JavaKit.framework */; };
 		C62AD6C91AF33B1000510999 /* ScoreBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = C62AD6C81AF33B1000510999 /* ScoreBubble.m */; };
+		C62AD6CD1AF4027900510999 /* PicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C62AD6CC1AF4027900510999 /* PicItem.m */; };
+		C62AD6D01AF402A800510999 /* DigitItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C62AD6CF1AF402A800510999 /* DigitItem.m */; };
+		C62AD6D31AF402B900510999 /* LetterItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C62AD6D21AF402B900510999 /* LetterItem.m */; };
 		C648F9431AF0490D001B09C8 /* Recap.m in Sources */ = {isa = PBXBuildFile; fileRef = C648F9421AF0490D001B09C8 /* Recap.m */; };
 		C6561D4B1AE8639A00393613 /* ChooseLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6561D4A1AE8639A00393613 /* ChooseLevel.m */; };
 		C6561D4E1AE86E6F00393613 /* MissionAssign.m in Sources */ = {isa = PBXBuildFile; fileRef = C6561D4D1AE86E6F00393613 /* MissionAssign.m */; };
@@ -220,6 +223,12 @@
 		BC5399D71A44DCC90063F482 /* JavaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaKit.framework"; sourceTree = "<group>"; };
 		C62AD6C71AF33B1000510999 /* ScoreBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScoreBubble.h; path = Source/ScoreBubble.h; sourceTree = "<group>"; };
 		C62AD6C81AF33B1000510999 /* ScoreBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScoreBubble.m; path = Source/ScoreBubble.m; sourceTree = "<group>"; };
+		C62AD6CB1AF4027900510999 /* PicItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PicItem.h; path = Source/PicItem.h; sourceTree = "<group>"; };
+		C62AD6CC1AF4027900510999 /* PicItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PicItem.m; path = Source/PicItem.m; sourceTree = "<group>"; };
+		C62AD6CE1AF402A800510999 /* DigitItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DigitItem.h; path = Source/DigitItem.h; sourceTree = "<group>"; };
+		C62AD6CF1AF402A800510999 /* DigitItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DigitItem.m; path = Source/DigitItem.m; sourceTree = "<group>"; };
+		C62AD6D11AF402B900510999 /* LetterItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LetterItem.h; path = Source/LetterItem.h; sourceTree = "<group>"; };
+		C62AD6D21AF402B900510999 /* LetterItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LetterItem.m; path = Source/LetterItem.m; sourceTree = "<group>"; };
 		C648F9411AF0490D001B09C8 /* Recap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Recap.h; path = Source/Recap.h; sourceTree = "<group>"; };
 		C648F9421AF0490D001B09C8 /* Recap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Recap.m; path = Source/Recap.m; sourceTree = "<group>"; };
 		C6561D491AE8639A00393613 /* ChooseLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseLevel.h; path = Source/ChooseLevel.h; sourceTree = "<group>"; };
@@ -489,6 +498,12 @@
 				C697807B1AF1F59F00E9DDF3 /* Stack.m */,
 				C62AD6C71AF33B1000510999 /* ScoreBubble.h */,
 				C62AD6C81AF33B1000510999 /* ScoreBubble.m */,
+				C62AD6CB1AF4027900510999 /* PicItem.h */,
+				C62AD6CC1AF4027900510999 /* PicItem.m */,
+				C62AD6CE1AF402A800510999 /* DigitItem.h */,
+				C62AD6CF1AF402A800510999 /* DigitItem.m */,
+				C62AD6D11AF402B900510999 /* LetterItem.h */,
+				C62AD6D21AF402B900510999 /* LetterItem.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -864,15 +879,18 @@
 			files = (
 				C6561D5D1AE8876100393613 /* Item.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
+				C62AD6D01AF402A800510999 /* DigitItem.m in Sources */,
 				C6561D4E1AE86E6F00393613 /* MissionAssign.m in Sources */,
 				C6561D4B1AE8639A00393613 /* ChooseLevel.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
 				C648F9431AF0490D001B09C8 /* Recap.m in Sources */,
+				C62AD6CD1AF4027900510999 /* PicItem.m in Sources */,
 				C69780801AF1F7E600E9DDF3 /* TimeAnim.m in Sources */,
 				C62AD6C91AF33B1000510999 /* ScoreBubble.m in Sources */,
 				C6BE2D961AE9B78A00E834EE /* GamePlay.m in Sources */,
 				C697807C1AF1F59F00E9DDF3 /* Stack.m in Sources */,
+				C62AD6D31AF402B900510999 /* LetterItem.m in Sources */,
 				C69AF28B1AED6683004C4DB1 /* Queue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

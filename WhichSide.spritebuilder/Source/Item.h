@@ -11,6 +11,8 @@
 @interface Item : CCSprite
 
 @property (nonatomic, assign) int id;
+@property (nonatomic, assign) int score;
+@property (nonatomic, assign) int amount;
 
 - (id)initItem:(int)id;
 
