@@ -18,4 +18,17 @@
 
 - (BOOL)getIsLeft;
 
+- (void)setForce:(CGPoint)force;
+
+- (CGPoint)getForce;
+
+- (void)setArrow:(CCNode *)a;
+
+- (CCNode *)getArrow;
+
+- (void)setParticleSystem:(CCParticleSystem *)ps;
+
+- (CCParticleSystem *)getParticleSystem;
+
+
 @end

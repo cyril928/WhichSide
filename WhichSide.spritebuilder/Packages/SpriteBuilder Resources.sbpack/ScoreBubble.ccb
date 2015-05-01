@@ -51,9 +51,74 @@
 				<key>displayName</key>
 				<string>CCLabelTTF</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_scoreTxt</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
+				<key>physicsBody</key>
+				<dict>
+					<key>affectedByGravity</key>
+					<false/>
+					<key>allowsRotation</key>
+					<false/>
+					<key>bodyShape</key>
+					<integer>0</integer>
+					<key>collisionCategories</key>
+					<array/>
+					<key>collisionMask</key>
+					<array/>
+					<key>collisionType</key>
+					<string></string>
+					<key>cornerRadius</key>
+					<real>0.0</real>
+					<key>density</key>
+					<real>1</real>
+					<key>dynamic</key>
+					<true/>
+					<key>elasticity</key>
+					<real>0.30000001192092896</real>
+					<key>friction</key>
+					<real>0.30000001192092896</real>
+					<key>points</key>
+					<array>
+						<array>
+							<real>0.0</real>
+							<real>0.0</real>
+						</array>
+						<array>
+							<real>0.0</real>
+							<real>16</real>
+						</array>
+						<array>
+							<real>84</real>
+							<real>16</real>
+						</array>
+						<array>
+							<real>84</real>
+							<real>0.0</real>
+						</array>
+					</array>
+					<key>polygons</key>
+					<array>
+						<array>
+							<array>
+								<real>84</real>
+								<real>0.0</real>
+							</array>
+							<array>
+								<real>84</real>
+								<real>16</real>
+							</array>
+							<array>
+								<real>0.0</real>
+								<real>16</real>
+							</array>
+							<array>
+								<real>0.0</real>
+								<real>0.0</real>
+							</array>
+						</array>
+					</array>
+				</dict>
 				<key>properties</key>
 				<array>
 					<dict>
@@ -71,8 +136,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>41</real>
-							<real>42</real>
+							<real>60</real>
+							<real>31</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -109,7 +174,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>HIT</string>
+							<string>Sample Text</string>
 							<false/>
 						</array>
 					</dict>
@@ -128,7 +193,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>20</real>
+							<real>12</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -245,10 +310,12 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string></string>
+		<string>ScoreBubble</string>
 		<key>displayName</key>
 		<string>CCSprite</string>
 		<key>memberVarAssignmentName</key>
@@ -311,7 +378,7 @@
 				<key>value</key>
 				<array>
 					<string></string>
-					<string>WhichSideAssets/Hit.png</string>
+					<string>WhichSideAssets/scorebubble.png</string>
 				</array>
 			</dict>
 			<dict>

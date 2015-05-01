@@ -12,7 +12,8 @@
 #import "Stack.h"
 
 #define ITEM_NUM    12
-#define TIME    7
+#define RAND_TIME   1
+#define REMEM_TIME  7
 
 TimeAnim * _preTimeAnim;
 @implementation MissionAssign {
@@ -20,6 +21,7 @@ TimeAnim * _preTimeAnim;
     CCSprite *_rightBar;
     NSMutableSet *_usedItemSet;
     NSMutableArray *_usedItemList;
+    NSMutableArray *_randomShowList;
     float _barHeight;
     float _barWidth;
     CCNode *_timeBox;
@@ -29,6 +31,7 @@ TimeAnim * _preTimeAnim;
 - (void)didLoadFromCCB {
     _usedItemSet = [NSMutableSet set];
     _usedItemList = [NSMutableArray array];
+    _randomShowList = [NSMutableArray array];
 }
 
 - (void)onEnter {
@@ -40,10 +43,12 @@ TimeAnim * _preTimeAnim;
     _stack = [[Stack alloc] init];
     [self setupBar];
     [self selectItems];
-    [self putItems];
     [self putTimeSquare];
-    [self schedule:@selector(timeCountDown) interval:1.0f repeat:TIME delay:0];
-    [self scheduleOnce:@selector(play) delay:TIME];
+    [self putRandomItemShow];
+    [self scheduleOnce:@selector(removeItemRandomShow) delay:RAND_TIME];
+    [self scheduleOnce:@selector(putItems) delay:RAND_TIME];
+    [self schedule:@selector(timeCountDown) interval:1.0f repeat:REMEM_TIME delay:RAND_TIME];
+    [self scheduleOnce:@selector(play) delay:REMEM_TIME + RAND_TIME];
 }
 
 - (void) setupBar {
@@ -52,12 +57,38 @@ TimeAnim * _preTimeAnim;
 }
 
 - (void) putTimeSquare {
-    float unit = _timeBox.contentSize.width / (TIME + 1);
-    for(int i = 0; i < TIME; i++) {
+    float unit = _timeBox.contentSize.width / (REMEM_TIME + 1);
+    for(int i = 0; i < REMEM_TIME; i++) {
         TimeAnim* timeAnim = (TimeAnim *)[CCBReader load:@"TimeAnim"];
         timeAnim.position = ccp(unit * (i + 1) , _timeBox.contentSize.height / 2);
         [_timeBox addChild:timeAnim];
         [_stack push:timeAnim];
+    }
+}
+
+- (void)putRandomItemShow {
+    float unit = _barHeight / (self.levelIndex + 1);
+    for(int i = 0; i < self.levelIndex; i++) {
+        CCParticleSystem *ps = (CCParticleSystem *)[CCBReader load:@"ItemRandomShow"];
+        //ps.autoRemoveOnFinish = TRUE;
+        ps.position = ccp(_barWidth / 2, unit * (i + 1));
+        [_leftBar addChild:ps];
+        [_randomShowList addObject:ps];
+    }
+    for(int i = 0; i < self.levelIndex; i++) {
+        CCParticleSystem *ps = (CCParticleSystem *)[CCBReader load:@"ItemRandomShow"];
+        //ps.autoRemoveOnFinish = TRUE;
+        ps.position = ccp(_barWidth / 2, unit * (i + 1));
+        [_rightBar addChild:ps];
+        [_randomShowList addObject:ps];
+    }
+    
+}
+
+- (void)removeItemRandomShow {
+    for(CCParticleSystem *ps in _randomShowList) {
+        [ps removeFromParent];
+        [ps stopAllActions];
     }
 }
 
@@ -114,7 +145,10 @@ TimeAnim * _preTimeAnim;
 }
 
 - (void)reselect {
-    [[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:@"ChooseLevel"]];
+    CCScene *chooseLevelScene = [CCBReader loadAsScene:@"ChooseLevel"];
+    [[CCDirector sharedDirector] replaceScene:[chooseLevelScene scene] withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.2]];
+
+    //[[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:@"ChooseLevel"]];
 }
 
 - (void)start {

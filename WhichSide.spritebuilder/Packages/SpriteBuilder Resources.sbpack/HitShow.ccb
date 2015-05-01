@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>2</integer>
+	<integer>1</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -110,8 +110,8 @@
 				<string>Point</string>
 				<key>value</key>
 				<array>
-					<real>10</real>
-					<real>10</real>
+					<real>0.0</real>
+					<real>0.0</real>
 				</array>
 			</dict>
 			<dict>
@@ -120,7 +120,7 @@
 				<key>type</key>
 				<string>Float</string>
 				<key>value</key>
-				<real>150</real>
+				<real>100000</real>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -128,7 +128,7 @@
 				<key>type</key>
 				<string>Float</string>
 				<key>value</key>
-				<real>-1</real>
+				<real>0.0099999997764825821</real>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -136,7 +136,7 @@
 				<key>type</key>
 				<string>Integer</string>
 				<key>value</key>
-				<integer>300</integer>
+				<integer>3000</integer>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -145,8 +145,8 @@
 				<string>FloatVar</string>
 				<key>value</key>
 				<array>
-					<real>3</real>
-					<real>5</real>
+					<real>0.0</real>
+					<real>1</real>
 				</array>
 			</dict>
 			<dict>
@@ -156,8 +156,8 @@
 				<string>FloatVar</string>
 				<key>value</key>
 				<array>
-					<real>50</real>
-					<real>60</real>
+					<real>0.0</real>
+					<real>0.0</real>
 				</array>
 			</dict>
 			<dict>
@@ -167,7 +167,7 @@
 				<string>FloatVar</string>
 				<key>value</key>
 				<array>
-					<real>32</real>
+					<real>20</real>
 					<real>0.0</real>
 				</array>
 			</dict>
@@ -201,7 +201,7 @@
 				<key>value</key>
 				<array>
 					<real>0.0</real>
-					<real>180</real>
+					<real>360</real>
 				</array>
 			</dict>
 			<dict>
@@ -212,16 +212,16 @@
 				<key>value</key>
 				<array>
 					<array>
-						<real>0.3525204062461853</real>
-						<real>0.34596514701843262</real>
-						<real>0.33849766850471497</real>
-						<real>0.82999998331069946</real>
+						<real>0.93907523155212402</real>
+						<real>0.73516947031021118</real>
+						<real>0.47483068704605103</real>
+						<real>1</real>
 					</array>
 					<array>
-						<real>0.69800055027008057</real>
-						<real>0.78790056705474854</real>
-						<real>0.78857672214508057</real>
-						<real>0.070000000298023224</real>
+						<real>0.092235274612903595</real>
+						<real>0.09087032824754715</real>
+						<real>0.091442413628101349</real>
+						<real>0.5</real>
 					</array>
 				</array>
 			</dict>
@@ -233,16 +233,16 @@
 				<key>value</key>
 				<array>
 					<array>
-						<real>0.79728645086288452</real>
-						<real>0.81359821557998657</real>
-						<real>0.53402787446975708</real>
-						<real>0.61000001430511475</real>
+						<real>0.0</real>
+						<real>0.0</real>
+						<real>0.0</real>
+						<real>0.81999999284744263</real>
 					</array>
 					<array>
-						<real>0.63242906332015991</real>
-						<real>0.63713228702545166</real>
-						<real>0.69887208938598633</real>
-						<real>0.43000000715255737</real>
+						<real>0.0</real>
+						<real>0.0</real>
+						<real>0.0</real>
+						<real>0.0</real>
 					</array>
 				</array>
 			</dict>
@@ -283,8 +283,8 @@
 				<string>FloatVar</string>
 				<key>value</key>
 				<array>
-					<real>98</real>
-					<real>210</real>
+					<real>72</real>
+					<real>0.0</real>
 				</array>
 			</dict>
 			<dict>

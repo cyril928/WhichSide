@@ -12,6 +12,9 @@ static NSString *path = @"WhichSideAssets/item-%d.png";
 
 @implementation Item {
     BOOL isLeft;
+    CGPoint force;
+    CCParticleSystem *particleSystem;
+    CCNode *arrow;
 }
 
 - (instancetype) initItem:(int)id {
@@ -23,6 +26,8 @@ static NSString *path = @"WhichSideAssets/item-%d.png";
     self.physicsBody.friction = 0.3;
     self.physicsBody.elasticity = 0.3;
     self.physicsBody.collisionType = @"item";
+    self.physicsBody.collisionCategories = @[@"item"];
+    self.physicsBody.collisionMask = @[@"leftBound", @"rightBound"];
     self.id = id;
     return self;
 }
@@ -34,5 +39,30 @@ static NSString *path = @"WhichSideAssets/item-%d.png";
 - (BOOL) getIsLeft {
     return isLeft;
 }
+
+- (void)setForce:(CGPoint)applyForce {
+    force = applyForce;
+}
+
+- (CGPoint)getForce {
+    return force;
+}
+
+- (void)setArrow:(CCNode *)a {
+    arrow = a;
+}
+
+- (CCNode *)getArrow {
+    return arrow;
+}
+
+- (void)setParticleSystem:(CCParticleSystem *)ps {
+    particleSystem = ps;
+}
+
+- (CCParticleSystem *)getParticleSystem {
+    return particleSystem;
+}
+
 
 @end

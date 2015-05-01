@@ -16,22 +16,29 @@
 #define M_PI        3.14159265358979323846264338327950288
 #define SIDES 2
 #define ITEM_SPEED_DIFF_RANGE 20
-#define TOTAL_LIVES 10
+#define TOTAL_LIVES 7
 
-static const double SWIPE_SPEED = 100;
+static const double SWIPE_SPEED = 200;
 float init_x, init_y;
 float next_x, next_y;
 int remaining_Lives;
 int score;
-CCNode* status;
+CCNode *status;
+CCNode *brokenHeart;
+NSMutableArray *intervalList;
+NSMutableArray *repeatList;
+int circularIndex = 0;
+
 @implementation GamePlay {
     CCPhysicsNode *_physicsNode;
     CCSprite *_activeZone;
     CCSprite *_leftBound;
     CCSprite *_rightBound;
     Queue *_queue;
+    CCSprite *_heart;
     CCLabelTTF *_health;
     CCLabelTTF *_score;
+    CCSprite *_scoreBar;
 }
 
 - (void)didLoadFromCCB {
@@ -52,14 +59,30 @@ CCNode* status;
         NSLog(@"%@", item);
     }
     _queue = [[Queue alloc] init];
+    intervalList = [NSMutableArray array];
+    [intervalList addObject:@(1.0f)];
+    [intervalList addObject:@(0.75f)];
+    [intervalList addObject:@(0.5f)];
+    repeatList = [NSMutableArray array];
+    [repeatList addObject:@(5)];
+    [repeatList addObject:@(7)];
+    [repeatList addObject:@(11)];
+    CCLOG(@"interval is %f, repeat is %d", [[intervalList objectAtIndex:0] floatValue], [[repeatList objectAtIndex:0] intValue]);
+    CCLOG(@"interval is %f, repeat is %d", [[intervalList objectAtIndex:1] floatValue], [[repeatList objectAtIndex:1] intValue]);
+    CCLOG(@"interval is %f, repeat is %d", [[intervalList objectAtIndex:2] floatValue], [[repeatList objectAtIndex:2] intValue]);
     [self startFallDownItem];
 }
 
 - (void) startFallDownItem {
-    [self scheduleOnce:@selector(scheduleToAddItems) delay:0];
-    [self schedule:@selector(scheduleToAddItems) interval:0.7f];
+    [self schedule:@selector(scheduleToAddItems) interval:[[intervalList objectAtIndex:circularIndex] floatValue] repeat:[[repeatList objectAtIndex:circularIndex] intValue] delay:0];
+    circularIndex = (circularIndex + 1) % [intervalList count];
+    [self schedule:@selector(startRealGame) interval:7.0f];
 }
 
+- (void) startRealGame {
+    [self schedule:@selector(scheduleToAddItems) interval:[[intervalList objectAtIndex:circularIndex] floatValue] repeat:[[repeatList objectAtIndex:circularIndex] intValue] delay:0];
+    circularIndex = (circularIndex + 1) % [intervalList count];
+}
 
 - (void) scheduleToAddItems {
  
@@ -72,7 +95,7 @@ CCNode* status;
     else {
         [item setIsLeft:FALSE];
     }
-    item.position = ccp(self.boundingBox.size.width / 2, self.boundingBox.size.height + 20);
+    item.position = ccp(self.boundingBox.size.width / 2, self.boundingBox.size.height - _scoreBar.boundingBox.size.height / 2);
     //item.scaleX = 2.0;
     //item.scaleY = 2.0;
     
@@ -82,7 +105,8 @@ CCNode* status;
     CGPoint launchDirection = ccp(0, -1);
     int dif = arc4random_uniform(ITEM_SPEED_DIFF_RANGE);
     CGPoint force = ccpMult(launchDirection, 30 + dif);
-    [item.physicsBody applyImpulse:force];
+    //[item setForce:force];
+    [item.physicsBody applyForce:force];
     [_queue enqueue:item];
 
 }
@@ -92,21 +116,58 @@ CCNode* status;
     for (id object in _physicsNode.children){
         if ([object isKindOfClass:[Item class]]){
             Item *i = object;
-            if ((i.position.x < 0) || (i.position.x > self.boundingBox.size.width) || (i.position.y < 0)){
+            if ((i.position.x < 0) || (i.position.x > self.boundingBox.size.width) || (i.position.y - i.contentSize.height / 2 < 0)){
                 [_queue dequeue];
+                
+                /*
+                CCNode *a = [i getArrow];
                 [[_physicsNode space] addPostStepBlock:^{
+                    [self oneObjectRemoved:a];
+                } key:a];
+                */
+                /*
+                CCParticleSystem *ps = [i getParticleSystem];
+                [[_physicsNode space] addPostStepBlock:^{
+                    [self oneObjectRemoved:ps];
+                } key:ps];
+                */
+                
+                [[_physicsNode space] addPostStepBlock:^{
+                    if(i.position.y - i.contentSize.height / 2 < 0) {
+                        [self call:i status:FALSE bottom:TRUE];
+                    }
                     [self oneObjectRemoved:i];
                 } key:i];
             }
-            
-            Item *firstItem = [_queue peek];
-            
-            if(firstItem.position.y < _activeZone.boundingBox.size.height) {
-                //firstItem.spriteFrame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"WhichSideAssets/item-1.png"];
-                firstItem.scale = 2.0;
-            }
         }
     }
+    Item *firstItem = [_queue peek];
+    
+    if(firstItem.position.y < _activeZone.boundingBox.size.height) {
+        //firstItem.spriteFrame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"WhichSideAssets/item-1.png"];
+        //firstItem.scale = 2.0;
+        /*
+        if([firstItem getArrow] == nil) {
+         
+            CCParticleSystem *ps = (CCParticleSystem *)[CCBReader load:@"ItemShow"];
+            ps.position = firstItem.position;
+            ps.autoRemoveOnFinish = FALSE;
+            [firstItem.parent addChild:ps];
+            [ps.physicsBody applyImpulse:[firstItem getForce]];
+            [firstItem setParticleSystem:ps];
+         
+            
+         
+            CCNode *arrow = (CCNode *)[CCBReader load:@"Arrow"];
+            arrow.physicsBody.body.mass = 1.0f;
+            arrow.position = ccp(firstItem.position.x, firstItem.position.y + firstItem.contentSize.height / 2 + arrow.contentSize.height / 2 + 5);
+            [firstItem.parent addChild:arrow];
+            [arrow.physicsBody applyImpulse:[firstItem getForce]];
+            [firstItem setArrow:arrow];
+         
+        }*/
+    }
+
 
     //CCLOG(@"%d", (int)[_queue size]);
 }
@@ -193,24 +254,11 @@ CCNode* status;
 - (void)itemHitBound:(Item *)item isLeftBound:(BOOL) isLeft{
     BOOL isLeftSide = [item getIsLeft];
     if((isLeftSide && isLeft) || (!isLeftSide && !isLeft)) {
-        status = [CCBReader load:@"Hit"];
-        score += 60;
-        _score.string = [NSString stringWithFormat:@"%d", score];
+        [self call:item status:TRUE bottom:FALSE];
     }
     else {
-        status = [CCBReader load:@"Miss"];
-        remaining_Lives--;
-        _health.string = [NSString stringWithFormat:@"%d", remaining_Lives];
-        if (remaining_Lives == 0) {
-            CCScene *recapScene = [CCBReader loadAsScene:@"Recap"];
-            Recap *scene = (Recap *)recapScene.children.firstObject;
-            scene.totalScore = score;
-            [[CCDirector sharedDirector] replaceScene:recapScene];
-        }
+        [self call:item status:FALSE bottom:FALSE];
     }
-    status.position = item.position;
-    [self addChild:status];
-    [self scheduleOnce:@selector(removeStatus) delay:0.2];
     /*
     // load particle effect
     CCParticleSystem *explosion = (CCParticleSystem *)[CCBReader load:@"ItemExplosion"];
@@ -223,12 +271,77 @@ CCNode* status;
     */
     // finally, remove the destroyed seal
     [_queue dequeue];
+    
+    /*
+    CCNode *a = [item getArrow];
+    [a removeFromParent];
+    */
+     /*
+    CCParticleSystem *ps = [item getParticleSystem];
+    [ps removeFromParent];
+     */
     [item removeFromParent];
+
+}
+
+- (void) call:(Item *)item status:(BOOL)hit bottom:(BOOL)bottom {
+    if(hit) {
+        status = [CCBReader load:@"Hit"];
+        score += 60;
+        _score.string = [NSString stringWithFormat:@"%d", score];
+        status.position = item.position;
+        [self addChild:status];
+        [self scheduleOnce:@selector(removeHitStatus) delay:0.2];
+    }
+    else {
+        brokenHeart = [CCBReader load:@"HeartBroken"];
+        brokenHeart.position = ccp(_heart.position.x, _heart.position.y - _heart.boundingBox.size.height / 2 - 10);
+        [self scheduleOnce:@selector(removeMissHeartBroken) delay:0.3];
+        [self addChild:brokenHeart];
+        
+        status = [CCBReader load:@"Miss"];
+        remaining_Lives--;
+        _health.string = [NSString stringWithFormat:@"%d", remaining_Lives];
+        if(bottom) {
+            status.position = ccp(item.position.x, item.position.y + item.boundingBox.size.height / 2 + 10);
+        }
+        else {
+             status.position = item.position;
+        }
+        [self addChild:status];
+        [self scheduleOnce:@selector(removeMissStatus) delay:0.2];
+        if (remaining_Lives == 0) {
+            CCScene *recapScene = [CCBReader loadAsScene:@"Recap"];
+            Recap *scene = (Recap *)recapScene.children.firstObject;
+            scene.totalScore = score;
+            [[CCDirector sharedDirector] replaceScene:recapScene];
+        }
+    }
 }
 
 
-- (void) removeStatus {
+- (void) removeHitStatus {
+    CCParticleSystem *ps = (CCParticleSystem *)[CCBReader load:@"HitShow"];
+    ps.autoRemoveOnFinish = TRUE;
+    ps.position = status.position;
+    [status.parent addChild:ps];
     [status removeFromParent];
+}
+
+- (void) removeMissStatus {
+    CCParticleSystem *ps = (CCParticleSystem *)[CCBReader load:@"MissShow"];
+    ps.autoRemoveOnFinish = TRUE;
+    ps.position = status.position;
+    [status.parent addChild:ps];
+    [status removeFromParent];
+}
+
+- (void) removeMissHeartBroken {
+    CCParticleSystem *ps = (CCParticleSystem *)[CCBReader load:@"MissShow"];
+    ps.autoRemoveOnFinish = TRUE;
+    ps.position = brokenHeart.position;
+    [brokenHeart.parent addChild:ps];
+    [brokenHeart removeFromParent];
 }
 
 - (void)oneObjectRemoved:(CCNode *)object {

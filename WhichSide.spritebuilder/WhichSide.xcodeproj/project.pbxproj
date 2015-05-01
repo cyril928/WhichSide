@@ -94,6 +94,7 @@
 		BC5399DA1A44DCC90063F482 /* GLActivityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D51A44DCC90063F482 /* GLActivityKit.framework */; };
 		BC5399DB1A44DCC90063F482 /* JavaFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D61A44DCC90063F482 /* JavaFoundation.framework */; };
 		BC5399DC1A44DCC90063F482 /* JavaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC5399D71A44DCC90063F482 /* JavaKit.framework */; };
+		C62AD6C91AF33B1000510999 /* ScoreBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = C62AD6C81AF33B1000510999 /* ScoreBubble.m */; };
 		C648F9431AF0490D001B09C8 /* Recap.m in Sources */ = {isa = PBXBuildFile; fileRef = C648F9421AF0490D001B09C8 /* Recap.m */; };
 		C6561D4B1AE8639A00393613 /* ChooseLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6561D4A1AE8639A00393613 /* ChooseLevel.m */; };
 		C6561D4E1AE86E6F00393613 /* MissionAssign.m in Sources */ = {isa = PBXBuildFile; fileRef = C6561D4D1AE86E6F00393613 /* MissionAssign.m */; };
@@ -217,6 +218,8 @@
 		BC5399D51A44DCC90063F482 /* GLActivityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLActivityKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/GLActivityKit.framework"; sourceTree = "<group>"; };
 		BC5399D61A44DCC90063F482 /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		BC5399D71A44DCC90063F482 /* JavaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaKit.framework; path = "../../../../Library/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaKit.framework"; sourceTree = "<group>"; };
+		C62AD6C71AF33B1000510999 /* ScoreBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScoreBubble.h; path = Source/ScoreBubble.h; sourceTree = "<group>"; };
+		C62AD6C81AF33B1000510999 /* ScoreBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScoreBubble.m; path = Source/ScoreBubble.m; sourceTree = "<group>"; };
 		C648F9411AF0490D001B09C8 /* Recap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Recap.h; path = Source/Recap.h; sourceTree = "<group>"; };
 		C648F9421AF0490D001B09C8 /* Recap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Recap.m; path = Source/Recap.m; sourceTree = "<group>"; };
 		C6561D491AE8639A00393613 /* ChooseLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseLevel.h; path = Source/ChooseLevel.h; sourceTree = "<group>"; };
@@ -484,6 +487,8 @@
 				C648F9421AF0490D001B09C8 /* Recap.m */,
 				C697807A1AF1F59F00E9DDF3 /* Stack.h */,
 				C697807B1AF1F59F00E9DDF3 /* Stack.m */,
+				C62AD6C71AF33B1000510999 /* ScoreBubble.h */,
+				C62AD6C81AF33B1000510999 /* ScoreBubble.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -865,6 +870,7 @@
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
 				C648F9431AF0490D001B09C8 /* Recap.m in Sources */,
 				C69780801AF1F7E600E9DDF3 /* TimeAnim.m in Sources */,
+				C62AD6C91AF33B1000510999 /* ScoreBubble.m in Sources */,
 				C6BE2D961AE9B78A00E834EE /* GamePlay.m in Sources */,
 				C697807C1AF1F59F00E9DDF3 /* Stack.m in Sources */,
 				C69AF28B1AED6683004C4DB1 /* Queue.m in Sources */,

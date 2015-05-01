@@ -16,7 +16,8 @@
     MissionAssign *scene = (MissionAssign *)missionAssignScene.children.firstObject;
     scene.currentLevel = @"Level1";
     scene.levelIndex = 1;
-    [[CCDirector sharedDirector] replaceScene:missionAssignScene];
+    //[[CCDirector sharedDirector] replaceScene:missionAssignScene];
+    [[CCDirector sharedDirector] replaceScene:[missionAssignScene scene] withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.2]];
 }
 
 - (void) level2 {
@@ -24,7 +25,7 @@
     MissionAssign *scene = (MissionAssign *)missionAssignScene.children.firstObject;
     scene.currentLevel = @"Level2";
     scene.levelIndex = 2;
-    [[CCDirector sharedDirector] replaceScene:missionAssignScene];
+    [[CCDirector sharedDirector] replaceScene:[missionAssignScene scene] withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.2]];
 }
 
 - (void) level3 {
@@ -32,7 +33,7 @@
     MissionAssign *scene = (MissionAssign *)missionAssignScene.children.firstObject;
     scene.currentLevel = @"Level3";
     scene.levelIndex = 3;
-    [[CCDirector sharedDirector] replaceScene:missionAssignScene];
+    [[CCDirector sharedDirector] replaceScene:[missionAssignScene scene] withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.2]];
 }
 
 - (void) level4 {
@@ -40,7 +41,7 @@
     MissionAssign *scene = (MissionAssign *)missionAssignScene.children.firstObject;
     scene.currentLevel = @"Level4";
     scene.levelIndex = 4;
-    [[CCDirector sharedDirector] replaceScene:missionAssignScene];
+    [[CCDirector sharedDirector] replaceScene:[missionAssignScene scene] withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.2]];
 }
 
 
