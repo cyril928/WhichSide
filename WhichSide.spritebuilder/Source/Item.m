@@ -24,6 +24,7 @@
     self.physicsBody.density = 1.0;
     self.physicsBody.friction = 0.3;
     self.physicsBody.elasticity = 0.3;
+    self.physicsBody.mass = 1.0;
     self.physicsBody.collisionType = @"item";
     self.physicsBody.collisionCategories = @[@"item"];
     self.physicsBody.collisionMask = @[@"leftBound", @"rightBound"];

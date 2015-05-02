@@ -17,9 +17,9 @@
 #define SIDES 2
 #define ITEM_SPEED_DIFF_RANGE 20
 #define TOTAL_LIVES 7
+#define MIN_GAP 20
 
 float init_x, init_y;
-float next_x, next_y;
 int remaining_Lives;
 int score;
 CCNode *status;
@@ -66,13 +66,21 @@ double SWIPE_SPEED = 0;
     SWIPE_SPEED = [self.g getSwipeSpeed];
     _queue = [[Queue alloc] init];
     intervalList = [NSMutableArray array];
-    [intervalList addObject:@(1.0f)];
+    /*[intervalList addObject:@(1.0f)];
     [intervalList addObject:@(0.75f)];
-    [intervalList addObject:@(0.5f)];
+    [intervalList addObject:@(0.5f)];*/
+    
+    [intervalList addObject:@(1.2f)];
+    [intervalList addObject:@(1.0f)];
+    [intervalList addObject:@(0.7f)];
     repeatList = [NSMutableArray array];
-    [repeatList addObject:@(5)];
+    /*[repeatList addObject:@(5)];
     [repeatList addObject:@(7)];
+    [repeatList addObject:@(11)];*/
+    [repeatList addObject:@(6)];
+    [repeatList addObject:@(8)];
     [repeatList addObject:@(11)];
+    
     CCLOG(@"interval is %f, repeat is %d", [[intervalList objectAtIndex:0] floatValue], [[repeatList objectAtIndex:0] intValue]);
     CCLOG(@"interval is %f, repeat is %d", [[intervalList objectAtIndex:1] floatValue], [[repeatList objectAtIndex:1] intValue]);
     CCLOG(@"interval is %f, repeat is %d", [[intervalList objectAtIndex:2] floatValue], [[repeatList objectAtIndex:2] intValue]);
@@ -82,7 +90,7 @@ double SWIPE_SPEED = 0;
 - (void) startFallDownItem {
     [self schedule:@selector(scheduleToAddItems) interval:[[intervalList objectAtIndex:circularIndex] floatValue] repeat:[[repeatList objectAtIndex:circularIndex] intValue] delay:0];
     circularIndex = (circularIndex + 1) % [intervalList count];
-    [self schedule:@selector(startRealGame) interval:7.0f];
+    [self schedule:@selector(startRealGame) interval:9.0f];
 }
 
 - (void) startRealGame {
@@ -188,16 +196,11 @@ double SWIPE_SPEED = 0;
 - (void)touchMoved:(CCTouch *)touch withEvent:(UIEvent *)event
 {
     CGPoint touchLocation = [touch locationInNode:self];
-    next_x = touchLocation.x;
-    next_y = touchLocation.y;
-    
-    //CCLOG(@"X is %f", next_x);
-    //CCLOG(@"Y is %f", next_y);
     
     Item *targetItem = [_queue peek];
     
     double launchAngel, rotationAngel;
-    if(touchLocation.x == init_x){
+    if(abs(touchLocation.x - init_x) < MIN_GAP){
         return;
     }
     if(touchLocation.y > init_y) {

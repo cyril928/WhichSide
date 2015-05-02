@@ -613,7 +613,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>253</real>
+							<real>247</real>
 							<real>537</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -696,7 +696,7 @@
 						<string>String</string>
 						<key>value</key>
 						<array>
-							<string>Start</string>
+							<string>Quick Start</string>
 							<false/>
 						</array>
 					</dict>
@@ -708,7 +708,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>WhichSideAssets/buttons-44@4x.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -719,7 +719,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonHighlighted.png</string>
+							<string>WhichSideAssets/buttons-43@4x.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -743,7 +743,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>WhichSideAssets/buttons-44@4x.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -762,7 +762,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>WhichSideAssets/buttons-43@4x.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -779,7 +779,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Helvetica</string>
+						<string>Verdana-Bold</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -788,7 +788,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>17</real>
+							<real>16</real>
 							<integer>0</integer>
 						</array>
 					</dict>
