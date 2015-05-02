@@ -28,7 +28,8 @@ CCNode *brokenHeart;
 NSMutableArray *intervalList;
 NSMutableArray *repeatList;
 int circularIndex = 0;
-
+int comboCount = 0;
+int TYPE_SCORE = 0;
 @implementation GamePlay {
     CCPhysicsNode *_physicsNode;
     CCSprite *_activeZone;
@@ -45,8 +46,6 @@ int circularIndex = 0;
     // tell this scene to accept touches
     self.userInteractionEnabled = TRUE;
     _physicsNode.collisionDelegate = self;
-    remaining_Lives = TOTAL_LIVES;
-    score = 0;
     _health.string = [NSString stringWithFormat:@"%d", remaining_Lives];
     _score.string = [NSString stringWithFormat:@"%d", score];
 }
@@ -58,6 +57,11 @@ int circularIndex = 0;
     for (id item in self.usedItemList) {
         NSLog(@"%@", item);
     }
+    
+    remaining_Lives = TOTAL_LIVES;
+    score = 0;
+    comboCount = 0;
+    TYPE_SCORE = [self.g getTypeScore];
     _queue = [[Queue alloc] init];
     intervalList = [NSMutableArray array];
     [intervalList addObject:@(1.0f)];
@@ -88,7 +92,7 @@ int circularIndex = 0;
  
     int r = arc4random_uniform((unsigned int)self.usedItemList.count);
     
-    Item *item = [[Item alloc] initItem:[[self.usedItemList objectAtIndex:r] intValue]];
+    Item *item = [self.g getItem:[[self.usedItemList objectAtIndex:r] intValue]];
     if(r < [self.usedItemList count] / 2) {
         [item setIsLeft:TRUE];
     }
@@ -257,7 +261,7 @@ int circularIndex = 0;
         [self call:item status:TRUE bottom:FALSE];
     }
     else {
-        [self call:item status:FALSE bottom:FALSE];
+        [self call:item status:TRUE bottom:FALSE];
     }
     /*
     // load particle effect
@@ -286,14 +290,27 @@ int circularIndex = 0;
 
 - (void) call:(Item *)item status:(BOOL)hit bottom:(BOOL)bottom {
     if(hit) {
-        status = [CCBReader load:@"Hit"];
-        score += 60;
+        comboCount++;
+        if(comboCount == 10) {
+            comboCount = 0;
+            status = [CCBReader load:@"Combo10"];
+            score += TYPE_SCORE * 10;
+        }
+        else if(comboCount == 5) {
+            status = [CCBReader load:@"Combo5"];
+            score += TYPE_SCORE * 5;
+        }
+        else {
+            status = [CCBReader load:@"Hit"];
+            score += TYPE_SCORE;
+        }
         _score.string = [NSString stringWithFormat:@"%d", score];
         status.position = item.position;
         [self addChild:status];
         [self scheduleOnce:@selector(removeHitStatus) delay:0.2];
     }
     else {
+        comboCount = 0;
         brokenHeart = [CCBReader load:@"HeartBroken"];
         brokenHeart.position = ccp(_heart.position.x, _heart.position.y - _heart.boundingBox.size.height / 2 - 10);
         [self scheduleOnce:@selector(removeMissHeartBroken) delay:0.3];

@@ -14,7 +14,7 @@
 @property (nonatomic, assign) int score;
 @property (nonatomic, assign) int amount;
 
-- (id)initItem:(int)id;
+- (id)initItem:(int)id withPath:(NSString *)path;
 
 - (void)setIsLeft:(BOOL)isLeftSide;
 

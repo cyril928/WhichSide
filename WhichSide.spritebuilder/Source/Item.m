@@ -8,7 +8,6 @@
 
 #import "Item.h"
 
-static NSString *path = @"WhichSideAssets/item-%d.png";
 
 @implementation Item {
     BOOL isLeft;
@@ -17,7 +16,7 @@ static NSString *path = @"WhichSideAssets/item-%d.png";
     CCNode *arrow;
 }
 
-- (instancetype) initItem:(int)id {
+- (instancetype) initItem:(int)id withPath:(NSString *)path {
     self = [super initWithImageNamed:[[NSString alloc] initWithFormat:path, id]];
     self.physicsBody = [CCPhysicsBody bodyWithRect:(CGRect) {CGPointZero, self.contentSize }cornerRadius:0];
     self.physicsBody.affectedByGravity = YES;

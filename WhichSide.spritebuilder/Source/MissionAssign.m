@@ -7,15 +7,18 @@
 //
 #import "Item.h"
 #import "GamePlay.h"
+#import "ChooseLevel.h"
 #import "MissionAssign.h"
 #import "TimeAnim.h"
 #import "Stack.h"
 
-#define ITEM_NUM    12
 #define RAND_TIME   1
-#define REMEM_TIME  7
 
 TimeAnim * _preTimeAnim;
+int LEVEL_INDEX;
+int TYPE_INDEX;
+int ITEM_NUM;
+int REMEM_TIME;
 @implementation MissionAssign {
     CCSprite *_leftBar;
     CCSprite *_rightBar;
@@ -36,9 +39,11 @@ TimeAnim * _preTimeAnim;
 
 - (void)onEnter {
     [super onEnter];
-    NSLog(@"left bar is on %f, %f", _leftBar.position.x, _rightBar.position.y);
-    NSLog(@"left bar length is %f", _leftBar.contentSize.width);
-    NSLog(@"LEVEL is %d", self.levelIndex);
+    
+    LEVEL_INDEX = [self.g getLevelIndex];
+    TYPE_INDEX = [self.g getTypeIndex];
+    ITEM_NUM = [self.g getTypeAmount];
+    REMEM_TIME = [self.g getTypeTime];
     
     _stack = [[Stack alloc] init];
     [self setupBar];
@@ -67,15 +72,15 @@ TimeAnim * _preTimeAnim;
 }
 
 - (void)putRandomItemShow {
-    float unit = _barHeight / (self.levelIndex + 1);
-    for(int i = 0; i < self.levelIndex; i++) {
+    float unit = _barHeight / (LEVEL_INDEX + 1);
+    for(int i = 0; i < LEVEL_INDEX; i++) {
         CCParticleSystem *ps = (CCParticleSystem *)[CCBReader load:@"ItemRandomShow"];
         //ps.autoRemoveOnFinish = TRUE;
         ps.position = ccp(_barWidth / 2, unit * (i + 1));
         [_leftBar addChild:ps];
         [_randomShowList addObject:ps];
     }
-    for(int i = 0; i < self.levelIndex; i++) {
+    for(int i = 0; i < LEVEL_INDEX; i++) {
         CCParticleSystem *ps = (CCParticleSystem *)[CCBReader load:@"ItemRandomShow"];
         //ps.autoRemoveOnFinish = TRUE;
         ps.position = ccp(_barWidth / 2, unit * (i + 1));
@@ -93,19 +98,19 @@ TimeAnim * _preTimeAnim;
 }
 
 - (void)putItems {
-    float unit = _barHeight / (self.levelIndex + 1);
+    float unit = _barHeight / (LEVEL_INDEX + 1);
     int count = 0;
     for (id itemId in _usedItemList) {
-        Item *item = [[Item alloc] initItem:[itemId intValue]];
+        Item *item = [self.g getItem:[itemId intValue]];
         item.anchorPoint = ccp(0.5, 0.5);
         item.scaleX = 2.5;
         item.scaleY = 2.5;
-        if(count < self.levelIndex) {
+        if(count < LEVEL_INDEX) {
             item.position = ccp(_barWidth / 2, unit * (count + 1));
             [_leftBar addChild:item];
         }
         else {
-            item.position = ccp(_barWidth / 2, unit * (count - self.levelIndex + 1));
+            item.position = ccp(_barWidth / 2, unit * (count - LEVEL_INDEX + 1));
             [_rightBar addChild:item];
         }
         count++;
@@ -114,9 +119,9 @@ TimeAnim * _preTimeAnim;
 }
 
 - (void)selectItems {
-    int amount = self.levelIndex << 1;
+    int amount = LEVEL_INDEX << 1;
     while(amount > 0) {
-        int r = arc4random_uniform(ITEM_NUM) + 1;
+        int r = arc4random_uniform(ITEM_NUM);
         if(![_usedItemSet containsObject:@(r)]) {
             amount--;
             [_usedItemSet addObject:@(r)];
@@ -141,14 +146,15 @@ TimeAnim * _preTimeAnim;
     CCScene *gamePlayScene = [CCBReader loadAsScene:@"GamePlay"];
     GamePlay *scene = (GamePlay *)gamePlayScene.children.firstObject;
     scene.usedItemList = [[NSMutableArray alloc] initWithArray:_usedItemList];
+    scene.g = self.g;
     [[CCDirector sharedDirector] replaceScene:gamePlayScene];
 }
 
 - (void)reselect {
     CCScene *chooseLevelScene = [CCBReader loadAsScene:@"ChooseLevel"];
+    ChooseLevel *scene = (ChooseLevel *)chooseLevelScene.children.firstObject;
+    scene.g = self.g;
     [[CCDirector sharedDirector] replaceScene:[chooseLevelScene scene] withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.2]];
-
-    //[[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:@"ChooseLevel"]];
 }
 
 - (void)start {
@@ -156,6 +162,7 @@ TimeAnim * _preTimeAnim;
     GamePlay *scene = (GamePlay *)gamePlayScene.children.firstObject;
     //[scene.usedItemList setArray:_usedItemList];
     scene.usedItemList = [[NSMutableArray alloc] initWithArray:_usedItemList];
+    scene.g = self.g;
     [[CCDirector sharedDirector] replaceScene:gamePlayScene];
 }
 

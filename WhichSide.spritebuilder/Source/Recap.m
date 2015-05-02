@@ -27,7 +27,7 @@
 }
 
 - (void)reStart {
-    [[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:@"ChooseLevel"]];
+    [[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:@"ChooseType"]];
 }
 
 

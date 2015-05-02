@@ -7,9 +7,11 @@
 //
 
 #import "CCNode.h"
+#import "GameConfig.h"
 
 @interface GamePlay : CCNode <CCPhysicsCollisionDelegate>
 
+@property (nonatomic) GameConfig *g;
 @property (nonatomic, copy) NSMutableArray *usedItemList;
 
 @end

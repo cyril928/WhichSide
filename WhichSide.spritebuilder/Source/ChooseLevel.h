@@ -7,7 +7,10 @@
 //
 
 #import "CCNode.h"
+#import "GameConfig.h"
 
 @interface ChooseLevel : CCNode
+
+@property (nonatomic) GameConfig *g;
 
 @end

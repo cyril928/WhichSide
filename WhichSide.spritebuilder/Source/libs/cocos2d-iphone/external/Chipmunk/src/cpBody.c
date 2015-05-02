@@ -109,7 +109,7 @@ cpBodyFree(cpBody *body)
 	
 	static void
 	cpBodySanityCheck(const cpBody *body)
-	{
+	{   
 		cpAssertHard(body->m == body->m && body->m_inv == body->m_inv, "Body's mass is NaN.");
 		cpAssertHard(body->i == body->i && body->i_inv == body->i_inv, "Body's moment is NaN.");
 		cpAssertHard(body->m >= 0.0f, "Body's mass is negative.");

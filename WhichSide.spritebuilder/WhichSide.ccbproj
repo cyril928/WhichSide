@@ -78,6 +78,21 @@
 			<key>previewFolderHidden</key>
 			<true/>
 		</dict>
+		<key>LetterAssets</key>
+		<dict>
+			<key>isSmartSpriteSheet</key>
+			<true/>
+		</dict>
+		<key>NumberAssets</key>
+		<dict>
+			<key>isSmartSpriteSheet</key>
+			<true/>
+		</dict>
+		<key>PicAssets</key>
+		<dict>
+			<key>isSmartSpriteSheet</key>
+			<true/>
+		</dict>
 		<key>Sprites</key>
 		<dict/>
 		<key>TimeSquareAssets</key>
@@ -87,6 +102,8 @@
 		</dict>
 		<key>WhichSideAssets</key>
 		<dict>
+			<key>isDirty</key>
+			<true/>
 			<key>isSmartSpriteSheet</key>
 			<true/>
 		</dict>

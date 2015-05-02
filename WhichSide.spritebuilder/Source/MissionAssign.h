@@ -7,10 +7,11 @@
 //
 
 #import "CCNode.h"
+#import "GameConfig.h"
 
 @interface MissionAssign : CCNode
 
+@property (nonatomic) GameConfig *g;
 @property (nonatomic, strong) NSString* currentLevel;
-@property (nonatomic, assign) int levelIndex;
 
 @end
