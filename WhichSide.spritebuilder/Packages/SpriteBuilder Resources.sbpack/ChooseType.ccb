@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>12</integer>
+	<integer>13</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -41,7 +41,7 @@
 		<array>
 			<dict>
 				<key>UUID</key>
-				<integer>1</integer>
+				<integer>12</integer>
 				<key>baseClass</key>
 				<string>CCSprite</string>
 				<key>children</key>
@@ -71,8 +71,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
-							<real>0.0</real>
+							<real>170.02297973632812</real>
+							<real>247.00064086914062</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -96,8 +96,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
-							<real>1</real>
+							<real>0.87000000476837158</real>
+							<real>0.86799997091293335</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -110,7 +110,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string></string>
+							<string>WhichSideAssets/background-nofont.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -179,8 +179,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>162.46994018554688</real>
-							<real>443</real>
+							<real>159.78414916992188</real>
+							<real>435.4713134765625</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -204,8 +204,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>2.1769943237304688</real>
-							<real>1.1155827045440674</real>
+							<real>2.0967085361480713</real>
+							<real>1.4141507148742676</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -274,7 +274,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>WhichSideAssets/buttons-03@4x.png</string>
+							<string>WhichSideAssets/buttons-52@4x.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -285,7 +285,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>WhichSideAssets/buttons-04@4x.png</string>
+							<string>WhichSideAssets/buttons-51@4x.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -309,7 +309,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>WhichSideAssets/buttons-04@4x.png</string>
+							<string>WhichSideAssets/buttons-52@4x.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -328,7 +328,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>WhichSideAssets/buttons-03@4x.png</string>
+							<string>WhichSideAssets/buttons-51@4x.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -505,8 +505,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>164</real>
-							<real>294</real>
+							<real>159.78414916992188</real>
+							<real>289.48275756835938</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -530,8 +530,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1.895728588104248</real>
-							<real>1.1642447710037231</real>
+							<real>1.8516751527786255</real>
+							<real>1.4822812080383301</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -600,7 +600,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>WhichSideAssets/buttons-03@4x.png</string>
+							<string>WhichSideAssets/buttons-52@4x.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -611,7 +611,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>WhichSideAssets/buttons-04@4x.png</string>
+							<string>WhichSideAssets/buttons-51@4x.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -635,7 +635,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>WhichSideAssets/buttons-04@4x.png</string>
+							<string>WhichSideAssets/buttons-52@4x.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -654,7 +654,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>WhichSideAssets/buttons-03@4x.png</string>
+							<string>WhichSideAssets/buttons-51@4x.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -831,7 +831,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>164</real>
+							<real>159.78414916992188</real>
 							<real>139.00001525878906</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -856,8 +856,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1.6847251653671265</real>
-							<real>1.1642447710037231</real>
+							<real>1.6869704723358154</real>
+							<real>1.4374827146530151</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -926,7 +926,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>WhichSideAssets/buttons-03@4x.png</string>
+							<string>WhichSideAssets/buttons-52@4x.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -937,7 +937,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>WhichSideAssets/buttons-04@4x.png</string>
+							<string>WhichSideAssets/buttons-51@4x.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -961,7 +961,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>WhichSideAssets/buttons-04@4x.png</string>
+							<string>WhichSideAssets/buttons-52@4x.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -980,7 +980,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>WhichSideAssets/buttons-03@4x.png</string>
+							<string>WhichSideAssets/buttons-51@4x.png</string>
 						</array>
 					</dict>
 					<dict>

@@ -103,8 +103,7 @@ int REMEM_TIME;
     for (id itemId in _usedItemList) {
         Item *item = [self.g getItem:[itemId intValue]];
         item.anchorPoint = ccp(0.5, 0.5);
-        item.scaleX = 2.5;
-        item.scaleY = 2.5;
+        item.scale = [self.g getShowItemScale];
         if(count < LEVEL_INDEX) {
             item.position = ccp(_barWidth / 2, unit * (count + 1));
             [_leftBar addChild:item];

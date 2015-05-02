@@ -18,7 +18,6 @@
 #define ITEM_SPEED_DIFF_RANGE 20
 #define TOTAL_LIVES 7
 
-static const double SWIPE_SPEED = 200;
 float init_x, init_y;
 float next_x, next_y;
 int remaining_Lives;
@@ -30,6 +29,7 @@ NSMutableArray *repeatList;
 int circularIndex = 0;
 int comboCount = 0;
 int TYPE_SCORE = 0;
+double SWIPE_SPEED = 0;
 @implementation GamePlay {
     CCPhysicsNode *_physicsNode;
     CCSprite *_activeZone;
@@ -46,8 +46,6 @@ int TYPE_SCORE = 0;
     // tell this scene to accept touches
     self.userInteractionEnabled = TRUE;
     _physicsNode.collisionDelegate = self;
-    _health.string = [NSString stringWithFormat:@"%d", remaining_Lives];
-    _score.string = [NSString stringWithFormat:@"%d", score];
 }
 
 - (void)onEnter {
@@ -60,8 +58,12 @@ int TYPE_SCORE = 0;
     
     remaining_Lives = TOTAL_LIVES;
     score = 0;
+    _health.string = [NSString stringWithFormat:@"%d", remaining_Lives];
+    _score.string = [NSString stringWithFormat:@"%d", score];
+    
     comboCount = 0;
     TYPE_SCORE = [self.g getTypeScore];
+    SWIPE_SPEED = [self.g getSwipeSpeed];
     _queue = [[Queue alloc] init];
     intervalList = [NSMutableArray array];
     [intervalList addObject:@(1.0f)];
@@ -100,8 +102,7 @@ int TYPE_SCORE = 0;
         [item setIsLeft:FALSE];
     }
     item.position = ccp(self.boundingBox.size.width / 2, self.boundingBox.size.height - _scoreBar.boundingBox.size.height / 2);
-    //item.scaleX = 2.0;
-    //item.scaleY = 2.0;
+    item.scale = [self.g getPlayItemScale];
     
     
     [_physicsNode addChild:item];
@@ -261,7 +262,7 @@ int TYPE_SCORE = 0;
         [self call:item status:TRUE bottom:FALSE];
     }
     else {
-        [self call:item status:TRUE bottom:FALSE];
+        [self call:item status:FALSE bottom:FALSE];
     }
     /*
     // load particle effect

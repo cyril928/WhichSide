@@ -11,10 +11,6 @@
 
 @interface GameConfig : NSObject
 
-- (void)setMainItem:(Item *)i;
-
-- (Item *)getMainItem;
-
 - (void)setTypeIndex:(int)t;
 
 - (int)getTypeIndex;
@@ -32,6 +28,12 @@
 - (int)get5ComboScore;
 
 - (int)get10ComboScore;
+
+- (float)getShowItemScale;
+
+- (float)getPlayItemScale;
+
+- (double)getSwipeSpeed;
 
 - (Item *)getItem:(int)id;
 

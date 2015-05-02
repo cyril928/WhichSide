@@ -9,17 +9,8 @@
 #import "GameConfig.h"
 
 @implementation GameConfig {
-    Item *_mainItem;
     int _typeIndex;
     int _levelIndex;
-}
-
-- (void)setMainItem:(Item *)i {
-    _mainItem = i;
-}
-
-- (Item *)getMainItem {
-    return _mainItem;
 }
 
 - (void)setTypeIndex:(int)t {
@@ -45,7 +36,7 @@
         case 1:
             return 26;
         default:
-            return 12;
+            return 101;
     }
 }
 
@@ -125,7 +116,39 @@
     }
 }
 
+- (float)getShowItemScale {
+    switch (_typeIndex) {
+        case 0:
+            return 2.0f;
+        case 1:
+            return 2.0f;
+        default:
+            return 1.0f;
+    }
 
+}
+
+- (float)getPlayItemScale {
+    switch (_typeIndex) {
+        case 0:
+            return 1.5f;
+        case 1:
+            return 1.5f;
+        default:
+            return 0.8f;
+    }
+}
+
+- (double)getSwipeSpeed {
+    switch (_typeIndex) {
+        case 0:
+            return 200;
+        case 1:
+            return 200;
+        default:
+            return 1000;
+    }
+}
 
 - (Item *)getItem:(int)id {
     Item *item = nil;
@@ -137,11 +160,12 @@
             item = [[Item alloc] initItem:id withPath:@"LetterAssets/item-%d.png"];
             break;
         default:
-            item = [[Item alloc] initItem:id withPath:@"PicAssets/item-%d.png"];
+            item = [[Item alloc] initItem:id withPath:@"PicAssets/P-1-%d.png"];
             break;
     }
     return item;
 }
+
 
 
 @end
